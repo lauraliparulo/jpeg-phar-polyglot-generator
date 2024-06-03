@@ -1,0 +1,5 @@
+<?php 
+    phpinfo();
+    echo "\n \n this is another line after php info! \n ";
+    __HALT_COMPILER(); 
+?>
