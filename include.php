@@ -1,3 +1,3 @@
 <?php
-include 'phar://payload.jpg';
+include 'phar://malicious.jpg';
 ?>
