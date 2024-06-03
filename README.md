@@ -23,7 +23,8 @@ This is a simple tool to add a phar payload at the end of a valid jpeg image.
 
 4. The file is in `payload.jpg`
 
-5. Profit
+5. Run "php include.php" to see the code executed!!
+
 
 
 ## It doesn't work 😡
