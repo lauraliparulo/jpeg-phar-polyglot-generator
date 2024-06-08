@@ -9,9 +9,6 @@ This is a simple tool to add a phar payload at the end of a valid jpeg image.
 - Php (Tested with php 8)
 
 ## Usage
-1. Clone the repo
-
-`git clone https://github.com/Sarapuce/jpeg-phar-fusion.git`
 
 2. Choose a php payload finishing by `__HALT_COMPILER();` for example :
 

