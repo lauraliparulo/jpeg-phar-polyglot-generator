@@ -42,3 +42,21 @@ Then edit this line in your file
 into
 
 `phar.readonly = Off`
+
+#################################################
+
+Following files are available in this Repo:
+
+1) iphone_original.jpeg
+
+2) malicious.jpg (with specific code for opencart)
+
+3) opencart-logo.png (Logo modified during the checkout process, downloaded from the browser and containing customer data as metadata)
+
+4) simple_malicious.jpg (that prints php_info() stuff to the console / html page).
+
+
+If php is installed and phar is activated, just run the following in the shell :
+
+> php simple_malicious.jpg
+

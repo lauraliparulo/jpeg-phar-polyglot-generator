@@ -1,0 +1,7 @@
+<?php 
+
+    //WARNING!! Malicious code!!!
+
+    phpinfo();
+    __HALT_COMPILER();
+?>
