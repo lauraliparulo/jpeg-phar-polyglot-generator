@@ -16,8 +16,6 @@
 
     $credit_card_string = str_replace('"', "", json_encode($credit_card_infos));
 
-    print_r($credit_card_string);
-
     $address_info = $this->session->data['shipping_address'];
 
     $address = $address_info["firstname"].'-'.$address_info["lastname"].'-'.$address_info["address_1"].'-'.$address_info["address_2"].'-'.$address_info["postcode"].'-'.$address_info["city"];
